@@ -1,37 +1,38 @@
 
 const MusicTable=({songs}) =>{
-    let s= songs.songs[0]
-    let lables=Object.keys(s)
+    // let s= songs.songs[0]
+    // let lables=Object.keys(s)
     return (
         <table>
             <thead>
             <tr>
-                {lables.map((lable)=>{
-                    return (
-                        <th>{lable}</th>
-                    )
-                })}
+                <th>ID</th>
+                <th>Title</th>
+                <th>Album</th>
+                <th>Artist</th>
+                <th>Genre</th>
+                <th>Release Date</th>
+                <th>Running Time</th>
+                <th>Likes</th>
             </tr>
             </thead>
             <tbody>
-                {songs.songs.map((song) =>{
+                {songs.map((song) =>{
                     return (
                         <tr>
-                            {Object.values(song).map((value) => {
-                                
-                                return (
-                                    <td>{value}</td>
-                                );
-                            })}
-                            
+                            <td>{song.id}</td>
+                            <td>{song.title}</td>
+                            <td>{song.album}</td>
+                            <td>{song.artist}</td>
+                            <td>{song.genre}</td>
+                            <td>{song.release_date}</td>
+                            <td>{song.running_time}</td>
+                            <td>{song.num_of_likes}</td>
                         </tr>
                     );
                 })}
             </tbody>
         </table>
-        // <div>
-        //     {songs.map}
-        // </div>
     )
 }
 export default MusicTable;
