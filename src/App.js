@@ -3,6 +3,7 @@ import axios from 'axios';
 import MusicTable from './Components/MusicTable/MusicTable'
 import CreateNewSongForm from './Components/CreateNewSongForm/CreateNewSongForm';
 import SearchBar from './Components/NavBar/NavSearchBar';
+import SearchCategories from './Components/SearchCategories/SearchCategories';
 // make axios request request to the Music Library Apia for (get all songs)
 // need to put the api request in a useEffect hook function with an empty dependency array
 function App() {
@@ -32,12 +33,14 @@ function App() {
       <div>
         <div>My Music Library</div>
         <div>
-          {/* {songs.length!=0 ? <} */}
           <SearchBar setSongs={setSongs} songs={songs} makeGetRequest={makeGetRequest}/></div>
       </div>
       <div>
         {songs.length!=0 ? <MusicTable songs={songs}/> :
-        <div>loading...</div>}
+        <div>This Song is not in you Library.</div>}
+      </div>
+      <div>
+        <SearchCategories setSongs={setSongs} songs={songs} makeGetRequest={makeGetRequest}/>
       </div>
       <div>
         <CreateNewSongForm newSong={createSong}/>

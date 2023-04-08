@@ -33,7 +33,7 @@ const CreateNewSongForm=(newSong)=>{
         }
     }
     function AddNewSong(){
-        if(add_new_song === "inactive"){
+        if(add_new_song === "active"){
             
             return (
                 <form onSubmit={handleSubmit}>
@@ -69,7 +69,7 @@ const CreateNewSongForm=(newSong)=>{
                         <button type="submit" className="btn btn-primary" >Add Song</button>
                     </div>
                 </form>)
-        if(add_new_song === "active"){
+        if(add_new_song === "inactive"){
             
             return (<div></div>)
         }
