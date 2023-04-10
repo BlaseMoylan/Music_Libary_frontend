@@ -29,6 +29,12 @@ function App() {
       await makeGetRequest();
     }
   }
+  async function deleteSong(id){
+    let response = await axios.delete(`http://127.0.0.1:5000/api/songs/${id}` )
+    if(response.status===204){
+      await makeGetRequest();
+    }
+  }
   return (
     <div className='body'>
       <div className='navBar'>
@@ -39,8 +45,8 @@ function App() {
       </div>
       
       <div>
-        {songs.length!=0 ? <MusicTable songs={songs}/> :
-        <div>This Song is not in you Library.</div>}
+        {songs.length!=0 ? <MusicTable songs={songs} deleteSong={deleteSong}/> :
+        <div className='response'>This Song is not in you Library.</div>}
       </div>
       <div>
         <SearchCategories setSongs={setSongs} songs={songs} makeGetRequest={makeGetRequest}/>

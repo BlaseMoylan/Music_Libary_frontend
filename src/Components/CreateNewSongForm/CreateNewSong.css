@@ -3,6 +3,7 @@
     font-size: x-large;
     background-color: transparent;
     border:none;
+    margin-top: 30px;
 }
 .addSong:hover{
     color: #55495e;
@@ -21,6 +22,7 @@
     background-color: transparent;
     border: none;
     font-size: large;
+    margin-bottom: 100px;
 }
 .addButton2:hover{
     color: #55495e;
