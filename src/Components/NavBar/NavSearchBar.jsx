@@ -9,13 +9,27 @@ const SearchBar=({setSongs,songs,makeGetRequest}) => {
             setOnClick("active")
             event.preventDefault();
             console.log(songs)
-            let results=songs.filter(function(song){return song.title==input})
-            setSongs(results)}
+            let results=songs.filter(function(song){
+                if(song.title==input){
+                    return song}
+                else if(song.album==input){
+                    return song}
+                else if(song.artist==input){
+                    return song}
+                else if(song.genre==input){
+                    return song}
+                else if(song.release_date==input){
+                    return song}
+            })
+            setSongs(results)
+        }
         else{
             setOnClick("inactive")
             makeGetRequest()
         }
     }
+
+    
     
     function change(){
         if(onClick=="inactive"){

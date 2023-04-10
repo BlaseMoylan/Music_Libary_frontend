@@ -4,12 +4,24 @@ const SearchCategories = ({setSongs,songs,makeGetRequest}) => {
     const [thisButton1,setThisButton1]=useState("inactive")
     const [thisButton2,setThisButton2]=useState("inactive")
     const [thisButton3,setThisButton3]=useState("inactive")
-    
+    const [searchResults,setSearchResults]=useState("inactive")
+    function results(item){
+        if(searchResults==="inactive"){
+            
+            displaySongs(item)
+            setSearchResults("active")
+        }
+        if(searchResults==="active"){
+            
+            setSearchResults("inactive")
+        }
+    }
     function selected(){
         if(thisButton==="inactive"){
             setThisButton("active")
         }
         if(thisButton==="active"){
+            makeGetRequest()
             setThisButton("inactive")
         }
     }
@@ -18,7 +30,9 @@ const SearchCategories = ({setSongs,songs,makeGetRequest}) => {
             setThisButton1("active")
         }
         if(thisButton1==="active"){
+            makeGetRequest()
             setThisButton1("inactive")
+
         }
     }
     function selected2(){
@@ -26,6 +40,7 @@ const SearchCategories = ({setSongs,songs,makeGetRequest}) => {
             setThisButton2("active")
         }
         if(thisButton2==="active"){
+            makeGetRequest()
             setThisButton2("inactive")
         }
     }
@@ -34,6 +49,7 @@ const SearchCategories = ({setSongs,songs,makeGetRequest}) => {
             setThisButton3("active")
         }
         if(thisButton3==="active"){
+            makeGetRequest()
             setThisButton3("inactive")
         }
     }
@@ -82,11 +98,10 @@ const SearchCategories = ({setSongs,songs,makeGetRequest}) => {
             })}
         return (
             <div>
-                {uniqueItems.map((item)=>{
+                {uniqueItems.map((item,index)=>{
+                    if(searchResults==="active"){setSearchResults("inactive")}
                     return (
-                        // onClick={displaySongs(item)}
-                        <div><button>{item}</button></div>
-                        // <div>{item}</div>
+                        <div key={index}><button id={index}  onClick={()=>results(item)}>{item}</button></div>
                         )
                     })}
             </div>
@@ -94,25 +109,24 @@ const SearchCategories = ({setSongs,songs,makeGetRequest}) => {
         
     }
     function displaySongs(categorie){
-        let results=[]
         let result=songs.filter((song)=>{
             if(song.album==categorie){
-                results.push(song)
-                return true}
-            else if(song.genre==categorie){
-                results.push(song)
-                return true
+                return song
+                }
+            if(song.genre==categorie){
+                return song
+                
             }
-            else if(song.artist==categorie){
-                results.push(song)
-                return true
+            if(song.artist==categorie){
+                return song
+                
             }
-            else if(song.release_date==categorie){
-                results.push(song)
-                return true
+            if(song.release_date==categorie){
+                return song
+                
             }
         })
-        setSongs(results)
+        setSongs(result)
     }
     return ( 
         <div >
