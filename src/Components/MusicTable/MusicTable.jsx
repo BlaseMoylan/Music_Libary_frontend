@@ -1,11 +1,11 @@
-
+import "./MusicTable.css"
 const MusicTable=({songs}) =>{
     // let s= songs.songs[0]
     // let lables=Object.keys(s)
     return (
-        <table>
+        <table className="Table">
             <thead>
-            <tr>
+            <tr className="titles">
                 <th>ID</th>
                 <th>Title</th>
                 <th>Album</th>
@@ -19,7 +19,7 @@ const MusicTable=({songs}) =>{
             <tbody>
                 {songs.map((song) =>{
                     return (
-                        <tr>
+                        <tr className="data">
                             <td>{song.id}</td>
                             <td>{song.title}</td>
                             <td>{song.album}</td>

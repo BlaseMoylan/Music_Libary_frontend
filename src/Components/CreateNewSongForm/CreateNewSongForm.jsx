@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import "./CreateNewSong.css"
 
 const CreateNewSongForm=(newSong)=>{
     const [title, setTitle] = useState("")
@@ -36,38 +36,38 @@ const CreateNewSongForm=(newSong)=>{
         if(add_new_song === "active"){
             
             return (
-                <form onSubmit={handleSubmit}>
-                    <div>
+                <form onSubmit={handleSubmit} className="form">
+                    <div2>
                         <label>Title</label>
                         <input type='string' value={title} onChange={(event) => setTitle(event.target.value)}/>
-                    </div>
-                    <div>
+                    </div2>
+                    <div2>
                         <label>Album</label>
                         <input type='string' value={album} onChange={(event) => setAlbum(event.target.value)}/>
-                    </div>
-                    <div>
+                    </div2>
+                    <div2>
                         <label>Artist</label>
                         <input type='string' value={artist} onChange={(event) => setArtist(event.target.value)}/>
-                    </div>
-                    <div>
+                    </div2>
+                    <div2>
                         <label>Genre</label>
                         <input type='string' value={genre} onChange={(event) => setGenre(event.target.value)}/>
-                    </div>
-                    <div>
+                    </div2>
+                    <div2>
                         <label>Release Date</label>
                         <input type='date' value={release_date} onChange={(event) => setReleaseDate(event.target.value)}/>
-                    </div>
-                    <div>
+                    </div2>
+                    <div2>
                         <lable>Running Time</lable>
                         <input type='integer' value={running_time} onChange={(event) => setRunningTime(event.target.value)}/>
-                    </div>
-                    <div>
+                    </div2>
+                    <div2>
                         <label>Likes</label>
                         <input type='integer' value={num_of_likes} onChange={(event) => setLikes(event.target.value)}/>
-                    </div>
-                    <div>
-                        <button type="submit" className="btn btn-primary" >Add Song</button>
-                    </div>
+                    </div2>
+                    <div2>
+                        <button type="submit" className="btn btn-primary addButton2" >Add Song</button>
+                    </div2>
                 </form>)
         if(add_new_song === "inactive"){
             
@@ -78,7 +78,7 @@ const CreateNewSongForm=(newSong)=>{
     }
     let form=AddNewSong()
     return (
-        <div><button onClick={onClickAdd}>Add New Song</button>{form}</div>
+        <div><button className="addSong" onClick={onClickAdd}><i>Add New Song</i></button>{form}</div>
     );
 }
 export default CreateNewSongForm;

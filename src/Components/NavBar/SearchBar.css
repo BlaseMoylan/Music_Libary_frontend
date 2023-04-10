@@ -1,0 +1,29 @@
+.input{
+    width: 400px;
+    height: 30px;
+    border: none;
+    background-color: rgb(110, 110, 110);
+    color: black;
+    
+}
+.searchBar{
+    display: flex;
+    width: 600px;
+    height: 40px;
+    border-radius: 20px;
+    border:2px;
+    border-color: black;
+    background-color: rgb(110, 110, 110);
+    justify-content: center;
+    align-items: center;
+}
+.searchButton{
+    height: 30px;
+    border: none;
+    background-color: rgb(110, 110, 110);
+    color: black;
+    font-size: large;
+}
+.searchButton:hover{
+    color: rgb(175, 175, 175);
+}

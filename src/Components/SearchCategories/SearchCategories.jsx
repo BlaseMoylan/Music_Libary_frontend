@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./SearchCategories.css"
 const SearchCategories = ({setSongs,songs,makeGetRequest}) => {
     const [thisButton,setThisButton]=useState("inactive")
     const [thisButton1,setThisButton1]=useState("inactive")
@@ -97,11 +98,11 @@ const SearchCategories = ({setSongs,songs,makeGetRequest}) => {
                 }
             })}
         return (
-            <div>
+            <div className="options">
                 {uniqueItems.map((item,index)=>{
                     if(searchResults==="active"){setSearchResults("inactive")}
                     return (
-                        <div key={index}><button id={index}  onClick={()=>results(item)}>{item}</button></div>
+                        <div  key={index}><button id={index} className="option" onClick={()=>results(item)}>{item}</button></div>
                         )
                     })}
             </div>
@@ -129,11 +130,11 @@ const SearchCategories = ({setSongs,songs,makeGetRequest}) => {
         setSongs(result)
     }
     return ( 
-        <div >
-            <div><button className={thisButton} onClick={selected}>Album</button>{search('album')}</div>
-            <div><button className={thisButton1} onClick={selected1}>Artist</button>{search('artist')}</div>
-            <div><button className={thisButton2} onClick={selected2}>Genre</button>{search('genre')}</div>
-            <div><button className={thisButton3} onClick={selected3}>Release Date</button>{search('release_date')}</div>
+        <div className="sidebar">
+            <div><button1 className={thisButton} onClick={selected}>Album</button1>{search('album')}</div>
+            <div><button1 className={thisButton1} onClick={selected1}>Artist</button1>{search('artist')}</div>
+            <div><button1 className={thisButton2} onClick={selected2}>Genre</button1>{search('genre')}</div>
+            <div><button1 className={thisButton3} onClick={selected3}>Release Date</button1>{search('release_date')}</div>
         </div>
         );
 

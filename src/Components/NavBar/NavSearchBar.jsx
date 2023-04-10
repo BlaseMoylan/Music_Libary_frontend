@@ -1,5 +1,5 @@
 import { useState } from "react";
-// import MusicTable from "../MusicTable/MusicTable";
+import "./SearchBar.css"
 
 const SearchBar=({setSongs,songs,makeGetRequest}) => {
     const [onClick,setOnClick]=useState("inactive")
@@ -10,15 +10,15 @@ const SearchBar=({setSongs,songs,makeGetRequest}) => {
             event.preventDefault();
             console.log(songs)
             let results=songs.filter(function(song){
-                if(song.title==input){
+                if(song.title.toLowerCase()==input.toLowerCase()){
                     return song}
-                else if(song.album==input){
+                else if(song.album.toLowerCase()==input.toLowerCase()){
                     return song}
-                else if(song.artist==input){
+                else if(song.artist.toLowerCase()==input.toLowerCase()){
                     return song}
-                else if(song.genre==input){
+                else if(song.genre.toLowerCase()==input.toLowerCase()){
                     return song}
-                else if(song.release_date==input){
+                else if(song.release_date.toLowerCase()==input.toLowerCase()){
                     return song}
             })
             setSongs(results)
@@ -39,10 +39,10 @@ const SearchBar=({setSongs,songs,makeGetRequest}) => {
     }
     let tag=change()
     return (
-        <form onSubmit={handleSubmit}>
-            <div>
-                <input type='string' onChange={(event) => setInput(event.target.value)}/>
-                <button type="submit" className="btn btn-primary" >{tag}</button>
+        <form onSubmit={handleSubmit} >
+            <div className="searchBar">
+                <input type='string' className="input" onChange={(event) => setInput(event.target.value)}/>
+                <button type="submit" className="btn btn-primary searchButton" ><i>{tag}</i></button>
             </div>
         </form>
     )
