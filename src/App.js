@@ -10,6 +10,7 @@ import "./App.css"
 function App() {
 
   const [songs,setSongs]=useState([])
+  const [runTime,setRunTime]=useState("")
 
   useEffect(()=>{
     makeGetRequest();
@@ -23,6 +24,16 @@ function App() {
       console.log('error in makeGetRequest Api call!')
     }
   }
+  async function makeTimeGetRequest(){
+    try{
+      let response=await axios.get('http://127.0.0.1:5000/api/songs');
+      console.log(response.data);
+      setRunTime(response.data.total)
+    }catch (ex) {
+      console.log('error in makeTimeGetRequest Api call!')
+    }
+  }
+  makeTimeGetRequest()
   async function createSong(newSong){
     let response = await axios.post('http://127.0.0.1:5000/api/songs',newSong);
     if(response.status===201){
@@ -53,7 +64,7 @@ function App() {
       </div>
       <div>
         <CreateNewSongForm newSong={createSong}/>
-        
+        <div className='Time'>Total Run Time: {runTime}</div>
       </div>
       
       
