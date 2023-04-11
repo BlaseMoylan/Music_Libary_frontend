@@ -9,7 +9,7 @@ const MusicTable=({songs,deleteSong}) =>{
         <table className="Table">
             <thead>
             <tr className="titles">
-                <th>ID</th>
+                <th>#</th>
                 <th>Title</th>
                 <th>Album</th>
                 <th>Artist</th>
@@ -22,7 +22,8 @@ const MusicTable=({songs,deleteSong}) =>{
             <tbody>
                 {songs.map((song,index) =>{
                     return (
-                        <tr className="data">
+                        <tr className="data" >
+                            
                             <td>{index+=1}</td>
                             <td>{song.title}</td>
                             <td>{song.album}</td>
@@ -31,7 +32,7 @@ const MusicTable=({songs,deleteSong}) =>{
                             <td>{song.release_date}</td>
                             <td>{song.running_time}</td>
                             <td>{song.num_of_likes}</td>
-                            <td><button onClick={()=>deleteS(song.id)}>delete</button></td>
+                            <td><button className="delete" onClick={()=>deleteS(song.id)}>delete</button></td>
                         </tr>
                     );
                 })}
