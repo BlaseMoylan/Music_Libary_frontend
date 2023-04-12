@@ -35,4 +35,12 @@ describe('Testing Music Library', () => {
     cy.get('[data-test="searchButton"]').click()
     cy.contains('Storyteller').should('exist')
   })
+  it.skip('passes', () => {
+    cy.visit('http://localhost:3000/')
+    cy.contains('Storyteller')
+      .parents('tr')
+      .find('button')
+      .contains('delete')
+      .click()
+  })
 })
