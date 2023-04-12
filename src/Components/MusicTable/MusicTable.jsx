@@ -22,7 +22,7 @@ const MusicTable=({songs,deleteSong}) =>{
             <tbody>
                 {songs.map((song,index) =>{
                     return (
-                        <tr className="data" >
+                        <tr className="data"  >
                             
                             <td>{index+=1}</td>
                             <td>{song.title}</td>

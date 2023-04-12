@@ -39,34 +39,34 @@ const CreateNewSongForm=(newSong)=>{
                 <form onSubmit={handleSubmit} className="form">
                     <div2>
                         <label>Title</label>
-                        <input type='string' value={title} onChange={(event) => setTitle(event.target.value)}/>
+                        <input type='string' value={title} data-test="title" onChange={(event) => setTitle(event.target.value)}/>
                     </div2>
                     <div2>
                         <label>Album</label>
-                        <input type='string' value={album} onChange={(event) => setAlbum(event.target.value)}/>
+                        <input type='string' value={album} data-test="album" onChange={(event) => setAlbum(event.target.value)}/>
                     </div2>
                     <div2>
                         <label>Artist</label>
-                        <input type='string' value={artist} onChange={(event) => setArtist(event.target.value)}/>
+                        <input type='string' value={artist} data-test="artist" onChange={(event) => setArtist(event.target.value)}/>
                     </div2>
                     <div2>
                         <label>Genre</label>
-                        <input type='string' value={genre} onChange={(event) => setGenre(event.target.value)}/>
+                        <input type='string' value={genre} data-test="genre" onChange={(event) => setGenre(event.target.value)}/>
                     </div2>
                     <div2>
                         <label>Release Date</label>
-                        <input type='date' value={release_date} onChange={(event) => setReleaseDate(event.target.value)}/>
+                        <input type='date' value={release_date} data-test="release_date" onChange={(event) => setReleaseDate(event.target.value)}/>
                     </div2>
                     <div2>
                         <lable>Running Time</lable>
-                        <input type='integer' value={running_time} onChange={(event) => setRunningTime(event.target.value)}/>
+                        <input type='integer' value={running_time} data-test="running_time" onChange={(event) => setRunningTime(event.target.value)}/>
                     </div2>
                     <div2>
                         <label>Likes</label>
-                        <input type='integer' value={num_of_likes} onChange={(event) => setLikes(event.target.value)}/>
+                        <input type='integer' value={num_of_likes} data-test="likes" onChange={(event) => setLikes(event.target.value)}/>
                     </div2>
                     <div2>
-                        <button type="submit" className="btn btn-primary addButton2" >Add Song</button>
+                        <button type="submit" className="btn btn-primary addButton2" data-test="add_button" >Add Song</button>
                     </div2>
                 </form>)
         if(add_new_song === "inactive"){

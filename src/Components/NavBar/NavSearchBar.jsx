@@ -40,9 +40,9 @@ const SearchBar=({setSongs,songs,makeGetRequest}) => {
     let tag=change()
     return (
         <form onSubmit={handleSubmit} >
-            <div className="searchBar">
-                <input type='string' className="input" onChange={(event) => setInput(event.target.value)}/>
-                <button type="submit" className="btn btn-primary searchButton" ><i>{tag}</i></button>
+            <div className="searchBar" data-test="searchBar">
+                <input type='string' data-test="input" className="input" onChange={(event) => setInput(event.target.value)}/>
+                <button type="submit" data-test="searchButton" className="btn btn-primary searchButton" ><i>{tag}</i></button>
             </div>
         </form>
     )
