@@ -26,5 +26,13 @@ describe('Testing Music Library', () => {
       .should('have.value','200')
     cy.get('[data-test="add_button"]').click()
   })
-  
+  it.skip('passes', () => {
+    cy.visit('http://localhost:3000/')
+    cy.get('[data-test="searchBar"]')
+    cy.get('[data-test="input"]')
+      .type('Storyteller')
+      .should('have.value','Storyteller')
+    cy.get('[data-test="searchButton"]').click()
+    cy.contains('Storyteller').should('exist')
+  })
 })
