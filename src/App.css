@@ -14,10 +14,16 @@
     
 } */
 .body{
+    /* position: absolute; */
+    position: relative;
+    overflow-x: hidden;
     height: 100%;
     min-height:100vh;
-    background: linear-gradient(to bottom,rgb(83, 83, 83),rgba(62, 12, 131, 0));
+    background: linear-gradient(to bottom,rgb(83, 83, 83),rgb(37, 8, 104)); 
+    
+    
 }
+
 body{
     margin: 0;
 }

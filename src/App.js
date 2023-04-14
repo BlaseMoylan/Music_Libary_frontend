@@ -46,6 +46,29 @@ function App() {
       await makeGetRequest();
     }
   }
+  // async function edit(id,song){
+  //   let response = await axios.put(`http://127.0.0.1:5000/api/songs/${id}`,song)
+  //   if(response.status===200){
+  //     await makeGetRequest();
+  //   }
+  // }
+  async function edit(song,id) {
+    console.log(song)
+    try {
+        let response = await fetch(`http://127.0.0.1:5000/api/songs/${id}`, {
+            method: "PUT",
+            body: JSON.stringify(song),
+            headers: {
+                "Content-Type": "application/json",
+            },
+          });
+          if(response.status===200){
+                await makeGetRequest();
+              }
+        console.log(response)
+    } catch (err) {
+    }
+}
   return (
     <div className='body'>
       <div className='navBar'>
@@ -56,7 +79,7 @@ function App() {
       </div>
       
       <div>
-        {songs.length!=0 ? <MusicTable songs={songs} deleteSong={deleteSong}/> :
+        {songs.length!=0 ? <MusicTable songs={songs} deleteSong={deleteSong} edit={edit}/> :
         <div className='response'>This Song is not in you Library.</div>}
       </div>
       <div>
