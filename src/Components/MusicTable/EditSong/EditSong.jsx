@@ -22,10 +22,7 @@ const EditSong=({song,edit})=>{
         };
         edit(editSong,song.id)
     }
-    // for some reason I am not able to capture the value that is put into the inputs. and in it's current state unable to wright anything in the input
-    // the only way that I can edit a song is by originaly assining useState to the value that I want to replace the old one
-    // other than that the useStates are not being updated in the following code as they are supposed to. 
-    // the put request itself does work.
+    
 return(
     <form onSubmit={handleSubmit} >
             <div2>
